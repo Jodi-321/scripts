@@ -127,12 +127,14 @@ def finalReport(graphData):
     except:
         print("An error occured at finalReport().")
 
-if __name__ == "__main__":
-
+def main():
     data = []
 
     data = pullData(data)
     scores = playGame(data)
     graph = formatGameGraph(scores)
     finalReport(graph)
+
+if __name__ == "__main__":
+    main()
 
