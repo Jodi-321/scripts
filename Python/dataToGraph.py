@@ -1,5 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import jinja2
+import time
 
 '''
 This script pulls IP addresses from excel spreadsheet
@@ -8,16 +10,25 @@ Then graphs number of IPs for each class
                                                 Jodi
 '''
 
-def get_data(excelData):
+def getTime():
+    current_time = time.ctime()
+    return current_time
+
+def get_data():#excelData):
+    pulledData = []
+    path = 'data/MOCK_DATA.xlsx'
     #listing spreadsheet headers
     fields = ['site names','Networks','Addresses']
     #pulling data from spreadsheet
-    data = pd.read_excel(open('MOCK_DATA.xlsx', 'rb'))
+    data = pd.read_excel(open(path, 'rb'))
     #storing 'Networks' column in variable
-    excelData = (data.Networks)
+    excelNetworksData = (data.Networks)
 
+
+    pulledData.append(excelNetworksData)
+    return pulledData
    #returns data that will be graphed
-    return excelData
+    #return excelNetworksData
 
 
 def sortNGraph(sortData):
@@ -62,17 +73,54 @@ def createGraph(graphData):
     #ax.legend(title='Legend')
 
     #plt.savefig('foo.pdf')
-    plt.show()
+    #plt.show()
+    imgPath = 'data/graph.png'
+    plt.savefig(imgPath)
 
+def createReport(dataStore,genTime):
+    print(dataStore)
 
+    classA = dataStore[0]
+    classB = dataStore[1]
+    classC = dataStore[2]
+    classU = dataStore[3]
+    DateTime = genTime
+    graphPng = 'graph.png'
+    companyLogo = 'companyLogo.jpg'
 
-if __name__ == '__main__':
-    networkList = ()
-    #store IP with CIDRs in set
-    networkList = set(get_data(networkList))
+    htmlVars = {'CompanyLogo':companyLogo,'graphImg':graphPng,'DateTime':DateTime,'classA':classA,'classB':classB,'classC':classC,'classU':classU}
 
-    #Send to function to sort IPs
+    template_loader = jinja2.FileSystemLoader('./')
+    template_env = jinja2.Environment(loader=template_loader)
+
+    template_path = 'data/simpleTemplate.html'
+    template = template_env.get_template(template_path)
+
+    output_text = template.render(htmlVars)
+
+    html_path = 'data/simpleReport.html'#'simpleReport.html'
+    html_file = open(html_path,'w')
+    html_file.write(output_text)
+    html_file.close()
+
+def main():
+    genTime = getTime()
+    dataArray = [get_data(),genTime]
+    #print(dataArray[1])
+    networkList = set(dataArray[0][0])
+    #print(networkList)
+    # store IP with CIDRs in set
+    #networkList = set(get_data(networkList))
+    #print(networkList)
+
+    # Send to function to sort IPs
     getGraphData = sortNGraph(networkList)
 
-    #send to function to create graph
+
+    # send to function to create graph
     createGraph(getGraphData)
+
+    createReport(getGraphData,dataArray[1])
+
+if __name__ == '__main__':
+    main()
