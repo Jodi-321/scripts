@@ -4,7 +4,7 @@ import jinja2
 import time
 
 '''
-This script pulls IP addresses from excel spreadsheet
+This script pulls IP addresses from excel spreadsheet(FAKE DATA)
 Then sorts data based on IP Class
 Then graphs number of IPs for each class
                                                 Jodi
@@ -17,6 +17,7 @@ def getTime():
 def get_data():#excelData):
     pulledData = []
     path = 'data/MOCK_DATA.xlsx'
+
     #listing spreadsheet headers
     fields = ['site names','Networks','Addresses']
     #pulling data from spreadsheet
@@ -26,9 +27,11 @@ def get_data():#excelData):
 
 
     pulledData.append(excelNetworksData)
+
+    # returns data that will be graphed
     return pulledData
-   #returns data that will be graphed
-    #return excelNetworksData
+
+
 
 
 def sortNGraph(sortData):
@@ -78,7 +81,7 @@ def createGraph(graphData):
     plt.savefig(imgPath)
 
 def createReport(dataStore,genTime):
-    print(dataStore)
+    #print(dataStore)
 
     classA = dataStore[0]
     classB = dataStore[1]
@@ -98,7 +101,7 @@ def createReport(dataStore,genTime):
 
     output_text = template.render(htmlVars)
 
-    html_path = 'data/simpleReport.html'#'simpleReport.html'
+    html_path = 'data/simpleReport.html'
     html_file = open(html_path,'w')
     html_file.write(output_text)
     html_file.close()
@@ -106,12 +109,9 @@ def createReport(dataStore,genTime):
 def main():
     genTime = getTime()
     dataArray = [get_data(),genTime]
-    #print(dataArray[1])
-    networkList = set(dataArray[0][0])
-    #print(networkList)
+
     # store IP with CIDRs in set
-    #networkList = set(get_data(networkList))
-    #print(networkList)
+    networkList = set(dataArray[0][0])
 
     # Send to function to sort IPs
     getGraphData = sortNGraph(networkList)
@@ -120,7 +120,10 @@ def main():
     # send to function to create graph
     createGraph(getGraphData)
 
+    #create report with graphdata, and current time being sent to function
     createReport(getGraphData,dataArray[1])
 
 if __name__ == '__main__':
     main()
+
+    print("Script Complete!")
