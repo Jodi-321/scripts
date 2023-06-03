@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<hr />
+<p style="text-align: right;"><img src="{{CompanyLogo}}" alt="company logo" width="168" height="140" /></p>
+<h1>IP Scan Summary</h1>
+<h2>Report</h2>
+<p>Generated On: {{DateTime}}</p>
+<hr />
+<p></p>
+<p><img src="{{graphImg}}" alt="IPgraph" style="display: block; margin-left: auto; margin-right: auto;" width="518" height="259" /></p>
+<table style="border-collapse: collapse; width: 100%; height: 90px;" border="1">
+<tbody>
+<tr style="height: 18px;">
+<td style="width: 50%; text-align: center; height: 18px;">
+<h2>IP Class</h2>
+</td>
+<td style="width: 50%; text-align: center; height: 18px;">
+<h2>Count</h2>
+</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 50%; height: 18px; text-align: center;">
+<p><strong>Class A</strong></p>
+</td>
+<td style="width: 50%; height: 18px; text-align: center;">{{classA}}</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 50%; height: 18px; text-align: center;">
+<p><strong>Class B</strong></p>
+</td>
+<td style="width: 50%; height: 18px; text-align: center;">{{classB}}</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 50%; height: 18px; text-align: center;">
+<p><strong>Class C</strong></p>
+</td>
+<td style="width: 50%; height: 18px; text-align: center;">{{classC}}</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 50%; height: 18px; text-align: center;">
+<p><strong>Unknown</strong></p>
+</td>
+<td style="width: 50%; height: 18px; text-align: center;">{{classU}}</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</html>
