@@ -1,51 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
+    <title></title>
 </head>
-<hr />
-<p style="text-align: right;"><img src="{{CompanyLogo}}" alt="company logo" width="168" height="140" /></p>
-<h1>IP Scan Summary</h1>
-<h2>Report</h2>
-<p>Generated On: {{DateTime}}</p>
-<hr />
-<p></p>
-<p><img src="{{graphImg}}" alt="IPgraph" style="display: block; margin-left: auto; margin-right: auto;" width="518" height="259" /></p>
-<table style="border-collapse: collapse; width: 100%; height: 90px;" border="1">
-<tbody>
-<tr style="height: 18px;">
-<td style="width: 50%; text-align: center; height: 18px;">
-<h2>IP Class</h2>
-</td>
-<td style="width: 50%; text-align: center; height: 18px;">
-<h2>Count</h2>
-</td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 50%; height: 18px; text-align: center;">
-<p><strong>Class A</strong></p>
-</td>
-<td style="width: 50%; height: 18px; text-align: center;">{{classA}}</td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 50%; height: 18px; text-align: center;">
-<p><strong>Class B</strong></p>
-</td>
-<td style="width: 50%; height: 18px; text-align: center;">{{classB}}</td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 50%; height: 18px; text-align: center;">
-<p><strong>Class C</strong></p>
-</td>
-<td style="width: 50%; height: 18px; text-align: center;">{{classC}}</td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 50%; height: 18px; text-align: center;">
-<p><strong>Unknown</strong></p>
-</td>
-<td style="width: 50%; height: 18px; text-align: center;">{{classU}}</td>
-</tr>
-</tbody>
-</table>
-<hr />
+
+<body style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+    <p>
+        <meta charset="UTF-8">
+    </p>
+    <hr>
+    <p style="text-align: right;"><img src="{{CompanyLogo}}" alt="company logo" width="168" height="140"></p>
+    <h1>IP Scan Summary</h1>
+    <h2>Report</h2>
+    <p>Generated On: {{DateTime}}</p>
+    <hr>
+    <p><img src="{{graphImg}}" alt="IPgraph" width="518" height="259" style="margin: 0 auto; display: block; "></p>
+    <table style="border-collapse: collapse; width: 100%; height: 90px;" border="1">
+        <tbody>
+            <tr style="height: 18px;">
+                <td style="width: 50%; text-align: center; height: 18px;">
+                    <h2>IP Class</h2>
+                </td>
+                <td style="width: 50%; text-align: center; height: 18px;">
+                    <h2>Count</h2>
+                </td>
+            </tr>
+            <tr style="height: 18px;">
+                <td style="width: 50%; height: 18px; text-align: center;">
+                    <p><strong>Class A</strong></p>
+                </td>
+                <td style="width: 50%; height: 18px; text-align: center;">{{classA}}</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td style="width: 50%; height: 18px; text-align: center;">
+                    <p><strong>Class B</strong></p>
+                </td>
+                <td style="width: 50%; height: 18px; text-align: center;">{{classB}}</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td style="width: 50%; height: 18px; text-align: center;">
+                    <p><strong>Class C</strong></p>
+                </td>
+                <td style="width: 50%; height: 18px; text-align: center;">{{classC}}</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td style="width: 50%; height: 18px; text-align: center;">
+                    <p><strong>Unknown</strong></p>
+                </td>
+                <td style="width: 50%; height: 18px; text-align: center;">{{classU}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <p><br></p>
+    <hr>
+    <p style="text-align: right;"><img src="{{CompanyLogo}}" alt="company logo" width="168" height="140"></p>
+    <h1 style="text-align: left;">Selected Sites</h1>
+    <h4>Five sites are selected at random. The selected sites will be scheduled for routine security scanning immediately.</h4>
+    <hr>
+    <p><strong>&nbsp;</strong></p>
+    <table style="border-collapse: collapse; width: 100%; height: 90px;">
+        <tbody>
+            <tr>
+                <td style="width: 24.907%; text-align: center;">
+                    <h3>Site Number</h3>
+                </td>
+                <td style="width: 25%; text-align: center;">
+                    <h3>Site Name</h3>
+                </td>
+                <td style="width: 25%; text-align: center;">
+                    <h3>Site Network</h3>
+                </td>
+                <td style="width: 24.9071%; text-align: center;">
+                    <h3>Site Address</h3>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 24.907%; text-align: center; vertical-align: middle;">
+                    <article style="line-height: 1.5;"><span style="line-height: 1.5;">{{siteNumOne}}</span></article>
+                </td>
+                <td style="width: 25%; vertical-align: middle; text-align: center;">
+                    <article style="line-height: 1.5;"><span style="line-height: 1.5;">{{siteNameOne}}</span></article>
+                </td>
+                <td style="width: 25%; vertical-align: middle; text-align: center;">
+                    <article style="line-height: 1.5;"><span style="line-height: 1.5;">{{siteNetworkOne}}</span></article>
+                </td>
+                <td style="width: 24.9071%; vertical-align: middle; text-align: center;">
+                    <article style="line-height: 1.5;"><span style="line-height: 1.5;">{{siteAddrOne}}</span></article>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 24.907%; vertical-align: middle; text-align: center;">
+                    <article style="line-height: 1.5;"><span style="line-height: 1.5;">{{siteNumTwo}}</span></article>
+                </td>
+                <td style="width: 25%; vertical-align: middle; text-align: center;">
+                    <article style="line-height: 1.5;"><span style="line-height: 1.5;">{{siteNameTwo}}</span></article>
+                </td>
+                <td style="width: 25%; vertical-align: middle; text-align: center;">
+                    <article style="line-height: 1.5;"><span style="line-height: 1.5;">{{siteNetworkTwo}}</span></article>
+                </td>
+                <td style="width: 24.9071%; vertical-align: middle; text-align: center;">
+                    <article style="line-height: 1.5;"><span style="line-height: 1.5;">{{siteAddrTwo}}</span></article>
+                    <table style="width: 96%; margin-left: calc(4%); line-height: 1.5;"></table>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 24.907%; vertical-align: middle; text-align: center;">
+                    <article style="line-height: 1.5;">{{siteNumThree}}</article>
+                </td>
+                <td style="width: 25%; vertical-align: middle; text-align: center;">
+                    <article style="line-height: 1.5;">{{siteNameThree}}</article>
+                </td>
+                <td style="width: 25%; vertical-align: middle; text-align: center;">
+                    <article style="line-height: 1.5;">{{siteNetworkThree}}</article>
+                </td>
+                <td style="width: 24.9071%; vertical-align: middle; text-align: center;">
+                    <article style="line-height: 1.5;">{{siteAddrThree}}</article>
+                    <table style="width: 96%; margin-left: calc(4%); line-height: 1.5;"></table>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 24.907%; vertical-align: middle; text-align: center;">
+                    <article style="line-height: 1.5;">{{siteNumFour}}</article>
+                </td>
+                <td style="width: 25%; vertical-align: middle; text-align: center;">
+                    <article style="line-height: 1.5;">{{siteNameFour}}</article>
+                </td>
+                <td style="width: 25%; vertical-align: middle; text-align: center;">
+                    <article style="line-height: 1.5;">{{siteNetworkFour}}</article>
+                </td>
+                <td style="width: 24.9071%; vertical-align: middle; text-align: center;">
+                    <article style="line-height: 1.5;">{{siteAddrFour}}</article>
+                    <table style="width: 96%; margin-left: calc(4%); line-height: 1.5;"></table>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 24.907%; vertical-align: middle; text-align: center;">
+                    <article style="line-height: 1.5;">{{siteNumFive}}</article>
+                </td>
+                <td style="width: 25%; vertical-align: middle; text-align: center;">
+                    <article style="line-height: 1.5;">{{siteNameFive}}</article>
+                </td>
+                <td style="width: 25%; vertical-align: middle; text-align: center;">
+                    <article style="line-height: 1.5;">{{siteNetworkFive}}</article>
+                </td>
+                <td style="width: 24.9071%; vertical-align: middle; text-align: center;">
+                    <article style="line-height: 1.5;">{{siteAddrFive}}</article>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p><br></p>
+    <p><strong><br></strong></p>
+    <hr>
+    <p><strong><br></strong></p>
+    <p><br></p>
+</body>
+
 </html>
