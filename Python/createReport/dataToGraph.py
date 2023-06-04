@@ -10,6 +10,7 @@ Then sorts data based on IP Class
 Then graphs number of IPs for each class
 five sites are picked at random each time the report is ran
 the details ofr hte sites display in a table in the generated report
+final report located: createReport/data/testReport.pdf
 
                                                 Jodi
 '''
